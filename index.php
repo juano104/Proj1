@@ -6,7 +6,7 @@
     <title>Hat Shop</title>
 </head>
 <body>
-    <h2>Database info</h2>
+    <h2>Juan's Hats</h2>
     <?php
 
         $servername = "0.0.0.0";
