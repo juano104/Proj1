@@ -26,7 +26,7 @@
 
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-                echo $row["name"] . ": " . $row["price"] . "<br><br>";
+                echo $row["name"] . ": " . $row["price"] . "€" . "<br><br>";
             }
         }else{
             echo "0 results";
