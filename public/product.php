@@ -41,7 +41,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-<h2>Juan's Hats</h2>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6"></div>
+            <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<a href='#'>Add to Cart</a>" .  "<br>" . "<a href='index.php'>Back</a>"; ?></div>
+        </div>
+    </div>
 
 </body>
 </html>
