@@ -46,7 +46,7 @@
                             <img src="img/<?php echo $id;?>.jpg" alt="hat: <?php echo $id;?>">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $product_name;?></h5>
-                                <p class="card-text"><?php echo $price;?></p>
+                                <p class="card-text"><?php echo $price;?>€</p>
                                 <?php echo "<a href='product.php?id=$id'>View</a>"?>
                             </div>
                         </div>
