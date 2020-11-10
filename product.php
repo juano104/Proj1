@@ -41,7 +41,7 @@
                     $description = $row["description"];
                     $type = $row["type"];
                     //echo all data
-                    echo $product_name . "<br>" . $price . "<br>" . $description . "<br>" . $type . "<br>" . "<a href='#'>Add to Cart</a>";
+                    echo $product_name . "<br>" . $price . "<br>" . $description . "<br>" . $type . "<br>" . "<a href='#'>Add to Cart</a>" .  "<br>" . "<a href='index.php'>Back</a>";
                     }
             }else {
                 echo "That item does not exist.";
