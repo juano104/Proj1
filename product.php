@@ -6,7 +6,7 @@
     <title>Product</title>
 </head>
 <body>
-<h2>Juan's Hats</h2>
+<h2>Juan's Hats Product</h2>
 <?php 
     if (isset($_GET['id'])) {
         // Connect to the MySQL database  
@@ -31,11 +31,11 @@
             $query = "SELECT * FROM table ORDER BY id";
         } */
 
-        $sql = "SELECT * FROM products WHERE id='$id' LIMIT 1";
+        $sql = "SELECT * FROM products WHERE id = " . $id;
         $result = $mysqli->query($sql); 
         //if ($result = $mysqli->query($query)) {
             if($result->num_rows < 0){
-                while($row = $result->fetch_object()){ 
+                while($row = $result->fetch_assoc()){ 
                     $product_name = $row["name"];
                     $price = $row["price"];
                     $description = $row["description"];
