@@ -34,7 +34,7 @@
         $sql = "SELECT * FROM products WHERE id='$id' LIMIT 1";
         $result = $mysqli->query($sql); 
         //if ($result = $mysqli->query($query)) {
-            if($result->num_rows < 0){
+            if($result->num_rows > 0){
                 while($row = $result->fetch_object()){ 
                     $product_name = $row["name"];
                     $price = $row["price"];
