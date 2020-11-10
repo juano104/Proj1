@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
-</head>
-<body>
-<h2>Juan's Hats</h2>
 <?php 
     if (isset($_GET['id'])) {
         // Connect to the MySQL database  
@@ -39,6 +30,18 @@
     }
     $mysqli->close();
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+</head>
+<body>
+<h2>Juan's Hats</h2>
+
 </body>
 </html>
 

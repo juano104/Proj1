@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hat Shop</title>
-</head>
-<body>
-    <h2>Juan's Hats</h2>
-    <?php
+<?php
 
         $servername = "0.0.0.0";
         $username = "priori";
@@ -38,6 +29,23 @@
         $conn->close();
 
     ?>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hat Shop</title>
+</head>
+<body>
+    <h2>Juan's Hats</h2>
+    
 
 
 </body>
