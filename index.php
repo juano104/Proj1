@@ -20,7 +20,7 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-
+        //make query
         $sql = "Select * from products order by id";
         $result = $conn->query($sql);
 

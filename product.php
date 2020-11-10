@@ -8,47 +8,48 @@
 <body>
 <h2>Juan's Hats</h2>
 <?php 
-// Check to see the URL variable is set and that it exists in the database
-if (isset($_GET['id'])) {
-    // Connect to the MySQL database  
-    $servername = "0.0.0.0";
-    $username = "priori";
-    $password = "password";
-    $dbname = "HatShop";
+    //if (isset($_GET['id'])) {
+        // Connect to the MySQL database  
+        $servername = "0.0.0.0";
+        $username = "priori";
+        $password = "password";
+        $dbname = "HatShop";
+        
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        if(isset($_GET['id'])){
+            $id = htmlentities($_GET['id']);
+
+            $query = "SELECT * FROM table WHERE id = " . $id;
+        } else{
+            $query = "SELECT * FROM table ORDER BY id";
+        } 
+
+        //$sql = "SELECT * FROM products WHERE id='$id' LIMIT 1";
+        //$result = $conn->query($sql); // count the output amount
+        if ($result = $mysqli->query($query)) {
+            if($result->num_rows < 0){
+                while($row = $result->fetch_object()){ 
+                    $product_name = $row["name"];
+                    $price = $row["price"];
+                    $description = $row["description"];
+                    $type = $row["type"];
     
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-	$id = preg_replace('#[^0-9]#i', '', $_GET['id']); 
-	// Use this var to check to see if this ID exists, if yes then get the product 
-	// details, if no then exit this script and give message why
-	$sql = "SELECT * FROM products WHERE id='$id' LIMIT 1";
-	$result = $conn->query($sql); // count the output amount
-    if ($result->num_rows > 0) {
-		// get all the product details
-		while($row = $result->fetch_assoc()){ 
-			$product_name = $row["name"];
-			$price = $row["price"];
-			$description = $row["description"];
-            $type = $row["type"];
-
-            echo $product_name . " " . $price . " " . $description . " " . $type . " " . "<a href='#'>Add to cart</a>";
+                    echo $product_name . " " . $price . " " . $description . " " . $type . " " . "<a href='#'>Add to Cart</a>";
+                    }
+            }else {
+                echo "That item does not exist.";
+                
             }
-		
-	} else {
-		echo "That item does not exist.";
-	    exit();
-	}
-		
-} else {
-	echo "Data to render this page is missing.";
-	exit();
-}
-$conn->close();
+        } else{
+            echo "Theres a problem with the query.";
+        }
+    $mysqli->close();
 ?>
 </body>
 </html>
