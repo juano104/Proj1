@@ -41,6 +41,8 @@
             ?>
             <div class="col-sm-4">
                 <?php echo "<img src='$id.jpg' alt='hat $id'/>" ?>
+            </div>
+            <div class="col-sm-4">
                 <?php echo $product_name . " " . $price . "€ "  ."<a href='product.php?id=$id'>View</a>" . "<br><br>"; ?>
 
             </div>
