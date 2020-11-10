@@ -35,14 +35,14 @@
         $result = $mysqli->query($sql); 
         //if ($result = $mysqli->query($query)) {
             if($result->num_rows < 0){
-                //while($row = $result->fetch_object()){ 
+                while($row = $result->fetch_object()){ 
                     $product_name = $row["name"];
                     $price = $row["price"];
                     $description = $row["description"];
                     $type = $row["type"];
     
                     echo $product_name . " " . $price . " " . $description . " " . $type . " " . "<a href='#'>Add to Cart</a>";
-                    //}
+                    }
             }else {
                 echo "That item does not exist.";
                 
