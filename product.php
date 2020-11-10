@@ -26,8 +26,6 @@
             $id = htmlentities($_GET['id']);
 
             $query = "SELECT name, price, description, type FROM table WHERE id = " . $id;
-        } else{
-            $query = "SELECT name, price, description, type FROM table ORDER BY id";
         } 
 
         //$sql = "SELECT * FROM products WHERE id='$id' LIMIT 1";

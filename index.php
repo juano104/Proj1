@@ -21,7 +21,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
         //make query
-        $sql = "Select * from products order by id";
+        $sql = "Select id, name, price from products";
         $result = $conn->query($sql);
 
         if($result->num_rows > 0){
@@ -30,7 +30,7 @@
                 $product_name = $row["name"];
                 $price = $row["price"];
                 //echo
-                echo $product_name . " " . $price . " "  . "<a href='product.php?id=' . $id . ''>View</a>" . "<br><br>";
+                echo $product_name . " " . $price . " "  . "<form method='get' action='product.php'><input type='submit' value='View'/></form>" ."<a href='product.php?id=' . $id . ''>View</a>" . "<br><br>";
             }
         }else{
             echo "0 results";
