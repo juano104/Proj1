@@ -16,6 +16,13 @@ CREATE TABLE products(
 insert into products
 values (1, "Black Hat", "Comfortable hat for an everyday use.", "everyday", 16),
 	(2, "Blue Hat", "A hat for traveling.", "summer", 19),
-    (3, "Red Hat", "For a nice date out.", "formal", 17);
+    (3, "Red Hat", "For a nice date out.", "formal", 17),
+    (4, "Green Hat", "Comfortable hat for an everyday use.", "everyday", 16),
+	(5, "Yellow Hat", "A hat for traveling.", "summer", 19),
+    (6, "Orange Hat", "Comfortable hat for an everyday use.", "everyday", 16),
+	(7, "Dark Blue Hat", "A hat for traveling.", "summer", 19),
+    (8, "Purple Hat", "Comfortable hat for an everyday use.", "everyday", 16),
+	(9, "Light orange Hat", "A hat for traveling.", "summer", 19),
+    (10, "Light Green Hat", "Comfortable hat for an everyday use.", "everyday", 16);
 
 select * from products;

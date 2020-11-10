@@ -40,7 +40,7 @@
                         //echo $product_name . " " . $price . "€ "  ."<a href='product.php?id=$id'>View</a>" . "<br><br>";
             ?>
             <div class="col-sm-4">
-                <?php echo "<img src='$id.jpg' alt='hat $id'/>" ?>
+                <?php echo "<img class='img-fluid' src='$id.jpg' alt='hat $id'/>" ?>
                 <?php echo $product_name . " " . $price . "€ "  ."<a href='product.php?id=$id'>View</a>" . "<br><br>"; ?>
 
             </div>
