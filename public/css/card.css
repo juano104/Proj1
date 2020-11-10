@@ -44,13 +44,7 @@
     color: aquamarine;
 }
 
-img {
-    height: 500px;
-    width: 353px;
-}
-
-
-/*.card img {
+.card img {
     height: 100%;
     width: 100%;
-}*/
+}
