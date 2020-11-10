@@ -39,8 +39,11 @@
                         //echo all data
                         //echo $product_name . " " . $price . "€ "  ."<a href='product.php?id=$id'>View</a>" . "<br><br>";
             ?>
+            <div class="col-sm-4">
+                <img src="<?php $id ?>.jpg" alt="hat <?php $id ?>">
+                <?php echo $product_name . " " . $price . "€ "  ."<a href='product.php?id=$id'>View</a>" . "<br><br>"; ?>
 
-            <div class="col-sm-4"><?php echo $product_name . " " . $price . "€ "  ."<a href='product.php?id=$id'>View</a>" . "<br><br>"; ?></div>
+            </div>
 
             <?php
                     }
