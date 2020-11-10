@@ -30,11 +30,13 @@ if (isset($_GET['id'])) {
 	$result = $conn->query($sql); // count the output amount
     if ($result->num_rows > 0) {
 		// get all the product details
-		while($row = $result->fetch_assoc()){ 
+		while($row = $result->fetch_assoc($sql)){ 
 			$product_name = $row["name"];
 			$price = $row["price"];
 			$description = $row["description"];
             $type = $row["type"];
+
+            echo $product_name . " " . $price . " " . $description . " " . $type . " " . "<a href='#'>Add to cart</a>";
             }
 		
 	} else {

@@ -21,13 +21,16 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $sql = "Select * from products";
+        $sql = "Select * from products order by id";
         $result = $conn->query($sql);
 
         if($result->num_rows > 0){
-            while($row = $result->fetch_assoc()){
+            while($row = $result->fetch_assoc($sql)){
                 $id = $row["id"];
-                echo $row["name"] . ": " . $row["price"] . "€ " . "<a href='product.php?id=' . $id . ''>View</a>" . "<br><br>" ;
+                $product_name = $row["name"];
+                $price = $row["price"];
+                //echo
+                echo $product_name . " " . $price . " "  . "<a href='product.php?id=' . $id . ''>View</a>" . "<br><br>";
             }
         }else{
             echo "0 results";
