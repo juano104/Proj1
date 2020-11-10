@@ -43,7 +43,7 @@
 
                     <div class="col-md-4">
                         <div class="card text-center">
-                            <img src="<?php $id ?>.png" alt="hat: <?php $id ?>">
+                            <img src="<?php $id ?>.jpg" alt="hat: <?php $id ?>">
                             <div class="card-body">
                                 <h5 class="card-title"><?php $product_name ?></h5>
                                 <p class="card-text"><?php $price ?></p>
