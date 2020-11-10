@@ -43,10 +43,10 @@
 
                     <div class="col-md-4">
                         <div class="card text-center">
-                            <img src="<?php $id ?>.jpg" alt="hat: <?php $id ?>">
+                            <img src="img/<?php$id;?>.jpg" alt="hat: <?php$id;?>">
                             <div class="card-body">
-                                <h5 class="card-title"><?php $product_name ?></h5>
-                                <p class="card-text"><?php $price ?></p>
+                                <h5 class="card-title"><?php$product_name;?></h5>
+                                <p class="card-text"><?php$price;?></p>
                                 <?php echo "<a href='product.php?id=$id'>View</a>"?>
                             </div>
                         </div>
