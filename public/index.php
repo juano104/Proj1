@@ -26,10 +26,9 @@
 <body>
     
 
-    < class="container">
+    <div class="container">
     <h2 class="text-center">Juan's Hats</h2>
         
-
             <?php 
                 if($result->num_rows > 0){
                     while($row = $result->fetch_assoc()){
