@@ -40,7 +40,7 @@
                     $price = $row["price"];
                     $description = $row["description"];
                     $type = $row["type"];
-    
+                    //echo all data
                     echo $product_name . "<br>" . $price . "<br>" . $description . "<br>" . $type . "<br>" . "<a href='#'>Add to Cart</a>";
                     }
             }else {
