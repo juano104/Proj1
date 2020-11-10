@@ -26,7 +26,8 @@
 
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-                echo $row["name"] . ": " . $row["price"] . "€ " . "<form action='product.php' method='get'><input type='submit' value='View'/></form>" . "<br><br>" ;
+                $id = $row["id"];
+                echo $row["name"] . ": " . $row["price"] . "€ " . "<a href='product.php?id=' . $id . ''>View</a>" . "<br><br>" ;
             }
         }else{
             echo "0 results";
