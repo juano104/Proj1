@@ -31,8 +31,8 @@
         } 
 
         //$sql = "SELECT * FROM products WHERE id='$id' LIMIT 1";
-        //$result = $conn->query($sql); // count the output amount
-        if ($result = $mysqli->query($query)) {
+        $result = $mysqli->query($query); // count the output amount
+        //if ($result = $mysqli->query($query)) {
             if($result->num_rows < 0){
                 while($row = $result->fetch_object()){ 
                     $product_name = $row["name"];
@@ -46,9 +46,9 @@
                 echo "That item does not exist.";
                 
             }
-        } else{
-            echo "Theres a problem with the query.";
-        }
+        //} else{
+          //  echo "Theres a problem with the query.";
+        //}
     $mysqli->close();
 ?>
 </body>
