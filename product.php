@@ -35,7 +35,7 @@
         $result = $mysqli->query($sql); 
         //if ($result = $mysqli->query($query)) {
             if($result->num_rows > 0){
-                while($row = $result->fetch_object()){ 
+                while($row = $result->fetch_assoc()){ 
                     $product_name = $row["name"];
                     $price = $row["price"];
                     $description = $row["description"];
