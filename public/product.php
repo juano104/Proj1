@@ -1,10 +1,7 @@
 <?php 
     if (isset($_GET['id'])) {
         // Connect to the MySQL database  
-        $servername = "0.0.0.0";
-        $username = "priori";
-        $password = "password";
-        $dbname = "HatShop";
+        include'../config/db.php';
         
         // Create connection
         $mysqli = new mysqli($servername, $username, $password, $dbname);

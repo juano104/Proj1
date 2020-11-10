@@ -1,9 +1,6 @@
 <?php
 
-        $servername = "0.0.0.0";
-        $username = "priori";
-        $password = "password";
-        $dbname = "HatShop";
+        include'../config/db.php';
 
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
