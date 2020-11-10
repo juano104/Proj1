@@ -21,7 +21,7 @@
         if ($mysqli->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        $id = $_GET['id'];
+        $id = preg_replace('#[^0-9]#i', '', $_GET['id']);
 
         /*if(isset($_GET['id'])){
             $id = htmlentities($_GET['id']);
