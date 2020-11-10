@@ -30,7 +30,7 @@
                 $product_name = $row["name"];
                 $price = $row["price"];
                 //echo all data
-                echo $product_name . " " . $price . " "  ."<a href='product.php?id=$id'>View</a>" . "<br><br>";
+                echo $product_name . " " . $price . "€ "  ."<a href='product.php?id=$id'>View</a>" . "<br><br>";
             }
         }else{
             echo "0 results";
