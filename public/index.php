@@ -15,12 +15,6 @@
 
     ?>
 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,9 +24,10 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-    <h2>Juan's Hats</h2>
+    
 
     <div class="container">
+    <h2>Juan's Hats</h2>
         <div class="row">
 
             <?php 
