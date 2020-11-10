@@ -25,7 +25,7 @@
         $result = $conn->query($sql);
 
         if($result->num_rows > 0){
-            while($row = $result->fetch_assoc($sql)){
+            while($row = $result->fetch_assoc()){
                 $id = $row["id"];
                 $product_name = $row["name"];
                 $price = $row["price"];

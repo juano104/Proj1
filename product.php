@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
 	// Use this var to check to see if this ID exists, if yes then get the product 
 	// details, if no then exit this script and give message why
 	$sql = "SELECT * FROM products WHERE id='$id' LIMIT 1";
-	$result = $conn->query($sql); // count the output amount
+	$result = $conn->query(); // count the output amount
     if ($result->num_rows > 0) {
 		// get all the product details
 		while($row = $result->fetch_assoc($sql)){ 
