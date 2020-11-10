@@ -27,7 +27,7 @@
     
 
     <div class="container">
-    <h2>Juan's Hats</h2>
+    <h2 class="text-center">Juan's Hats</h2>
         <div class="row">
 
             <?php 
