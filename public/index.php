@@ -26,9 +26,9 @@
 <body>
     
 
-    <div class="container">
+    < class="container">
     <h2 class="text-center">Juan's Hats</h2>
-        <div class="row">
+        
 
             <?php 
                 if($result->num_rows > 0){
@@ -39,14 +39,17 @@
                         //echo all data
                         //echo $product_name . " " . $price . "€ "  ."<a href='product.php?id=$id'>View</a>" . "<br><br>";
             ?>
-            <div class="col-sm-4">
-                <?php echo "<img src='$id.jpg' alt='hat $id'/>" ?>
+            <div class="row">
+                <div class="col-sm-4">
+                    <?php echo "<img src='$id.jpg' alt='hat $id'/>" ?>
+                </div>
             </div>
-            <div class="col-sm-4">
-                <?php echo $product_name . " " . $price . "€ "  ."<a href='product.php?id=$id'>View</a>" . "<br><br>"; ?>
-
+            <div class="row">
+                <div class="col-sm-4">
+                    <?php echo $product_name . " " . $price . "€ "  ."<a href='product.php?id=$id'>View</a>" . "<br><br>"; ?>
+                </div>
             </div>
-
+            
             <?php
                     }
                 }else{
@@ -54,7 +57,7 @@
                 }
             ?>
 
-        </div>
+    
     </div>
 
 </body>
