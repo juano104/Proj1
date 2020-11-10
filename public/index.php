@@ -41,9 +41,9 @@
             <?php 
                 if($result->num_rows > 0){
                     while($row = $result->fetch_assoc()){
-                        //$id = $row["id"];
-                        //$product_name = $row["name"];
-                        //$price = $row["price"];
+                        $id = $row["id"];
+                        $product_name = $row["name"];
+                        $price = $row["price"];
                         //echo all data
                         //echo $product_name . " " . $price . "€ "  ."<a href='product.php?id=$id'>View</a>" . "<br><br>";
             ?>
