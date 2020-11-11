@@ -41,7 +41,7 @@
     
     <div class="container">
         <div class="row">
-            <div class="col-sm-6"><img src="img/<?php echo $id ?>.jpg" alt="HAT: <?php echo $id ?>"></div>
+            <div class="col-sm-6"><img class="img-fluid" src="img/<?php echo $id ?>.jpg" alt="HAT: <?php echo $id ?>"></div>
             <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<a href='#'>Add to Cart</a>" .  "<br>" . "<a href='index.php'>Back</a>"; ?></div>
         </div>
     </div>
