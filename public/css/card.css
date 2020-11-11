@@ -3,16 +3,6 @@
     padding: 0px;
 }
 
-.logo {
-    height: 50px;
-    width: 50px;
-}
-
-.logo img {
-    height: 100%;
-    width: 100%;
-}
-
 #services {
     background-color: #dbe5e6;
     padding: 30px 0px;
