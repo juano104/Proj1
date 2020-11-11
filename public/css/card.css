@@ -3,9 +3,14 @@
     padding: 0px;
 }
 
-.imga {
+.logo {
     height: 50px;
     width: 50px;
+}
+
+.logo img {
+    height: 100%;
+    width: 100%;
 }
 
 #services {

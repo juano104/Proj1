@@ -27,8 +27,8 @@
 <body>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="imga" href="#" class="navbar-brand">
-            <img class="imga" src="img/logo.jpg" alt="logo">
+        <a class="logo" href="index.php" class="navbar-brand">
+            <img src="img/logo.jpg" alt="logo">
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
