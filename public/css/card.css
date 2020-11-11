@@ -3,6 +3,11 @@
     padding: 0px;
 }
 
+a img {
+    height: 50px;
+    width: 50px;
+}
+
 #services {
     background-color: #dbe5e6;
     padding: 30px 0px;
