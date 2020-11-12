@@ -14,10 +14,10 @@ switch($_GET["action"]) {
 				if(in_array($productByCode[0]["id"],array_keys($_SESSION["cart_item"]))) {
 					foreach($_SESSION["cart_item"] as $k => $v) {
 							if($productByCode[0]["id"] == $k) {
-								if(empty($_SESSION["cart_item"][$k]["quantity"])) {
+								/*if(empty($_SESSION["cart_item"][$k]["quantity"])) {
 									$_SESSION["cart_item"][$k]["quantity"] = 0;
 								}
-								$_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
+								$_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];*/
 							}
 					}
 				} else {
