@@ -87,19 +87,19 @@ if(isset($_SESSION["cart_item"])){
 <th style="text-align:center;" width="5%">Remove</th>
 </tr>	
 <?php		
-    foreach ($_SESSION["cart_item"] as $item){
+    //foreach ($_SESSION["cart_item"] as $item){
         //$item_price = $item["quantity"]*$item["price"];
 		?>
 				<tr>
-				<td><img src="<?php /*echo $item["image"]; */?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
-				<td><?php echo $item["id"]; ?></td>
-				<td  style="text-align:right;"><?php echo "€ ".$item["price"]; ?></td>
-				<td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+				<td><?php echo $row["name"]; ?></td>
+				<td><?php echo $row["id"]; ?></td>
+				<td style="text-align:right;"><?php echo "€ ".$row["price"]; ?></td>
+				<td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $row["id"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
 				</tr>
 				<?php
 				//$total_quantity += $item["quantity"];
 				//$total_price += ($item["price"]*$item["quantity"]);
-		}
+		//}
 		?>
 </tbody>
 </table>		
