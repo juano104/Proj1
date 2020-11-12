@@ -58,8 +58,8 @@ switch($_GET["action"]) {
 <div id="shopping-cart">
 <div class="txt-heading">Shopping Cart</div>
 
-<button class="btn btn-danger">Clear Cart</button>
-<button class="btn btn-primary">Keep Shopping</button>
+<a href="index.php" class="btn btn-danger">Clear Cart</a>
+<a href="index.php?action=empty" class="btn btn-primary">Keep Shopping</a>
 <?php
 if(isset($_SESSION["cart_item"])){
     $total_quantity = 0;
