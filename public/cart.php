@@ -69,7 +69,7 @@ if(isset($_SESSION["cart_item"])){
 </tr>	
 <?php		
     foreach ($_SESSION["cart_item"] as $item){
-        $item_price = $item["quantity"]*$item["price"];
+        //$item_price = $item["quantity"]*$item["price"];
 		?>
 				<tr>
 				<td><?php echo $item["name"]; ?></td>
