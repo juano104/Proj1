@@ -75,50 +75,51 @@ switch($_GET["action"]) {
             </div>
         </div>
     </nav>
+    
+    <div class="container">
+        <h2 class="display-4">Shopping Cart</h2>
 
-<div id="shopping-cart">
-<div class="txt-heading">Shopping Cart</div>
+        <a href="cart.php?action=empty" class="btn btn-danger">Clear Cart</a>
+        <a href="index.php" class="btn btn-primary">Keep Shopping</a>
+        <?php
+        if(isset($_SESSION["cart_item"])){
+            $total_quantity = 0;
+            $total_price = 0;
+        ?>	
+        <table class="tbl-cart" cellpadding="10" cellspacing="1">
+            <tbody>
+                <tr>
+                <th style="text-align:left;">Name</th>
+                <th style="text-align:left;">ID</th>
+                <!--<th style="text-align:right;" width="5%">Quantity</th>-->
+                <th style="text-align:right;" width="10%">Price</th>
+                <th style="text-align:center;" width="5%">Remove</th>
+                </tr>	
+                <?php		
+                foreach ($_SESSION["cart_item"] as $item){
+                //$item_price = $item["quantity"]*$item["price"];
+                ?>
+                    <tr>
+                    <td><?php echo $item["name"]; ?></td>
+                    <td><?php echo $item["id"]; ?></td>
+                    <td style="text-align:right;"><?php echo "€ ".$item["price"]; ?></td>
+                    <td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+                    </tr>
+                    <?php
+                    //$total_quantity += $item["quantity"];
+                    //$total_price += ($item["price"]*$item["quantity"]);
+                }
+                ?>
+            </tbody>
+        </table>		
+        <?php
+        } else {
+        ?>
+        <div class="no-records">Your Cart is Empty</div>
+        <?php 
+        }
+        ?>
+    </div>
 
-<a href="cart.php?action=empty" class="btn btn-danger">Clear Cart</a>
-<a href="index.php" class="btn btn-primary">Keep Shopping</a>
-<?php
-if(isset($_SESSION["cart_item"])){
-    $total_quantity = 0;
-    $total_price = 0;
-?>	
-<table class="tbl-cart" cellpadding="10" cellspacing="1">
-<tbody>
-<tr>
-<th style="text-align:left;">Name</th>
-<th style="text-align:left;">ID</th>
-<!--<th style="text-align:right;" width="5%">Quantity</th>-->
-<th style="text-align:right;" width="10%">Price</th>
-<th style="text-align:center;" width="5%">Remove</th>
-</tr>	
-<?php		
-    foreach ($_SESSION["cart_item"] as $item){
-        //$item_price = $item["quantity"]*$item["price"];
-		?>
-				<tr>
-				<td><?php echo $item["name"]; ?></td>
-				<td><?php echo $item["id"]; ?></td>
-				<td style="text-align:right;"><?php echo "€ ".$item["price"]; ?></td>
-				<td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
-				</tr>
-				<?php
-				//$total_quantity += $item["quantity"];
-				//$total_price += ($item["price"]*$item["quantity"]);
-		}
-		?>
-</tbody>
-</table>		
-<?php
-} else {
-?>
-<div class="no-records">Your Cart is Empty</div>
-<?php 
-}
-?>
-</div>
 </body>
 </html>
