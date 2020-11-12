@@ -58,7 +58,10 @@
         <div class="row">
             <div class="col-sm-6"><img class="img-fluid" src="img/<?php echo $id ?>.jpg" alt="HAT: <?php echo $id ?>"></div>
             
-            <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<form method='post' action='cart.php?action=add&id=<?php echo $product_array[$key]['id']; ?> <button class='btn btn-primary' type='submit'>Add to Cart</button></form>" .  "<br>" . "<a href='index.php'>Back</a>"; ?></div>
+            <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>";?>
+                <form method="post" action="post"><button type="submit" class="btn btn-primar">Add to Cart</button></form>
+                <a href="index.php" action='cart.php?action=add&id=<?php $_GET['id']; ?>>Back</a>
+            </div>
         </div>
     </div>
 
