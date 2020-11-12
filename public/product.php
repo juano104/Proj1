@@ -11,17 +11,10 @@
         }
         $id = preg_replace('#[^0-9]#i', '', $_GET['id']);
 
-        $sql = "SELECT * FROM products WHERE id='$id'";
+        $sql = "SELECT * FROM products WHERE id='$id' LIMIT 1";
         $result = $mysqli->query($sql); 
 
-    
-	$sql = $mysqli->query("SELECT * FROM products");
-	if (!empty($sql)) { 
-		foreach($sql as $key=>$value){
-		}
-	}
-	
-
+        
 
         $row = $result->fetch_assoc();
         $product_name = $row["name"];
@@ -57,7 +50,8 @@
         <div class="row">
         
             <div class="col-sm-6"><img class="img-fluid" src="img/<?php echo $id ?>.jpg" alt="HAT: <?php echo $id ?>"></div>
-            <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<form method='post' action='cart.php?<?php echo $sql[$key]['code']; ?>' <button class='btn btn-primary' type='submit'>Add to Cart</button></form>" .  "<br>" . "<a href='index.php'>Back</a>"; ?></div>
+            
+            <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<form method='post' action='cart.php?action=add' <button class='btn btn-primary' type='submit'>Add to Cart</button></form>" .  "<br>" . "<a href='index.php'>Back</a>"; ?></div>
         </div>
     </div>
 
