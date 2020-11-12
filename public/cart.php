@@ -77,7 +77,7 @@ switch($_GET["action"]) {
     </nav>
     
     <div class="container">
-        <h2 class="display-4">Shopping Cart</h2>
+        <h2 class="display-4 text-center">Shopping Cart</h2>
 
         <a href="cart.php?action=empty" class="btn btn-danger">Clear Cart</a>
         <a href="index.php" class="btn btn-primary">Keep Shopping</a>
