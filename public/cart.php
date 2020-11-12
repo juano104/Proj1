@@ -31,7 +31,7 @@ switch($_GET["action"]) {
 	case "remove":
 		if(!empty($_SESSION["cart_item"])) {
 			foreach($_SESSION["cart_item"] as $k => $v) {
-					if($_GET["id"] == $k)
+					if($_GET["code"] == $k)
 						unset($_SESSION["cart_item"][$k]);				
 					if(empty($_SESSION["cart_item"]))
 						unset($_SESSION["cart_item"]);
@@ -103,7 +103,7 @@ switch($_GET["action"]) {
                     <td><?php echo $item["name"]; ?></td>
                     <td><?php echo $item["id"]; ?></td>
                     <td style="text-align:right;"><?php echo "€ ".$item["price"]; ?></td>
-                    <td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
+                    <td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btn"></a></td>
                     </tr>
                     <?php
                     //$total_quantity += $item["quantity"];
