@@ -59,8 +59,8 @@
             <div class="col-sm-6"><img class="img-fluid" src="img/<?php echo $id ?>.jpg" alt="HAT: <?php echo $id ?>"></div>
             
             <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>";?>
-                <form method="post" action="post"><button type="submit" class="btn btn-primar">Add to Cart</button></form>
-                <a href="index.php" action='cart.php?action=add&id=<?php $_GET['id']; ?>>Back</a>
+                <form method="post" action="cart.php?action=add&id=<?php $_GET['id']; ?>"><button type="submit" class="btn btn-primary">Add to Cart</button></form>
+                <a href="index.php">Back</a>
             </div>
         </div>
     </div>
