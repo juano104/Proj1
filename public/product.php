@@ -1,7 +1,7 @@
 <?php 
     if (isset($_GET['id'])) {
         // Connect to the MySQL database  
-        include'../config/db.php';
+        include('../config/db.php');
         
         // Create connection
         $mysqli = new mysqli($servername, $username, $password, $dbname);
@@ -21,10 +21,15 @@
         $type = $row["type"];
         //echo all data
         //echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<a href='#'>Add to Cart</a>" .  "<br>" . "<a href='index.php'>Back</a>";
-                    
+
+
     }else{
         echo "Theres a problem with the query";
     }
+
+    
+
+
     $mysqli->close();
 ?>
 

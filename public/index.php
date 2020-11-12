@@ -1,7 +1,7 @@
 <?php
-
-        include'../config/db.php';
-
+    session_start();
+        include('../config/db.php');
+    $status="";
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
         // Check connection
@@ -12,7 +12,6 @@
         $sql = "Select id, name, price from products";
         $result = $conn->query($sql);
         $conn->close();
-
     ?>
 
 <!DOCTYPE html>
