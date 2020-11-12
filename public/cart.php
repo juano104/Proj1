@@ -67,8 +67,8 @@ switch($_GET["action"]) {
 
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.php" class="nav-link">Home <span class="sr-only">(current)</span></a></li>
-                <li class="nav-item"><a href="cart.php" class="nav-link">MyCart</a></li>
+                <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="cart.php" class="nav-link">MyCart <span class="sr-only">(current)</span></a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
             </ul>
