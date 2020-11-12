@@ -2,6 +2,7 @@
     if (isset($_GET['id'])) {
         // Connect to the MySQL database  
         include('../config/db.php');
+        require_once("DBController.php");
         $db_handle = new DBController();
         
         // Create connection
