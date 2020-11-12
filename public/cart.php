@@ -3,8 +3,8 @@ session_start();
 include('../config/db.php');
 require_once("DBController.php");
 $db_handle = new DBController();
-if(!empty($_GET["id"])) {
-switch($_GET["id"]) {
+if(!empty($_GET["action"])) {
+switch($_GET["action"]) {
 	case "add":
 		if(!empty($_POST["id"])) {$productByCode = $db_handle->runQuery("SELECT * FROM products WHERE id='" . $_GET["id"] . "'");
 			$itemArray = array($productByCode[0]["id"]=>array('name'=>$productByCode[0]["name"], 'id'=>$productByCode[0]["id"], 'price'=>$productByCode[0]["price"]));
@@ -68,7 +68,7 @@ if(isset($_SESSION["cart_item"])){
 </tr>	
 <?php		
     foreach ($_SESSION["cart_item"] as $item){
-        //$item_price = $item["quantity"]*$item["price"];
+        $item_price = $item["quantity"]*$item["price"];
 		?>
 				<tr>
 				<td><?php echo $item["name"]; ?></td>

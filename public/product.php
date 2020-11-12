@@ -18,6 +18,7 @@
 
         $row = $result->fetch_assoc();
         $product_name = $row["name"];
+        $idprod = $row["id"];
         $price = $row["price"];
         $description = $row["description"];
         $type = $row["type"];
@@ -59,7 +60,7 @@
             <div class="col-sm-6"><img class="img-fluid" src="img/<?php echo $id ?>.jpg" alt="HAT: <?php echo $id ?>"></div>
             
             <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>";?>
-                <form method="post" action="cart.php?action=add&id=<?php $row['id']; ?>"><button type="submit" class="btn btn-primary">Add to Cart</button></form>
+                <form method="post" action="cart.php?action=add&id=<?php echo $idprod; ?>"><button type="submit" class="btn btn-primary">Add to Cart</button></form>
                 <a href="index.php">Back</a>
             </div>
         </div>
