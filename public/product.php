@@ -57,7 +57,7 @@
         <div class="row">
         
             <div class="col-sm-6"><img class="img-fluid" src="img/<?php echo $id ?>.jpg" alt="HAT: <?php echo $id ?>"></div>
-            <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<form method='post' action='cart.php' <button class='btn btn-primary' type='submit'>Add to Cart</button></form>" .  "<br>" . "<a href='index.php'>Back</a>"; ?></div>
+            <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<form method='post' action='cart.php?<?php echo $sql[$key]['code']; ?>' <button class='btn btn-primary' type='submit'>Add to Cart</button></form>" .  "<br>" . "<a href='index.php'>Back</a>"; ?></div>
         </div>
     </div>
 
