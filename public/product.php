@@ -16,13 +16,19 @@
         $sql = "SELECT * FROM products WHERE id='$id' LIMIT 1";
         $result = $mysqli->query($sql); 
 
-        
-
-        /*$row = $result->fetch_assoc();
+        $row = $result->fetch_assoc();
         $product_name = $row["name"];
         $price = $row["price"];
         $description = $row["description"];
-        $type = $row["type"];*/
+        $type = $row["type"];
+
+        
+	$product_array = $db_handle->runQuery("SELECT * FROM products ORDER BY id ASC");
+	if (!empty($product_array)) { 
+		foreach($product_array as $key=>$value){
+		}
+	}
+	
         //echo all data
         //echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<a href='#'>Add to Cart</a>" .  "<br>" . "<a href='index.php'>Back</a>";
 
@@ -53,13 +59,13 @@
         
             
             <?php
-	$product_array = $db_handle->runQuery("SELECT * FROM tblproduct ORDER BY id ASC");
+	$product_array = $db_handle->runQuery("SELECT * FROM products ORDER BY id ASC");
 	if (!empty($product_array)) { 
 		foreach($product_array as $key=>$value){
 	?>
 		<div class="col-sm-6"><img class="img-fluid" src="img/<?php echo $id ?>.jpg" alt="HAT: <?php echo $id ?>"></div>
             
-            <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<form method='post' action='cart.php?action=add' <button class='btn btn-primary' type='submit'>Add to Cart</button></form>" .  "<br>" . "<a href='index.php'>Back</a>"; ?></div>
+            <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<form method='post' action='cart.php?action=add&id=<?php echo $product_array[$key]['id']; ?> <button class='btn btn-primary' type='submit'>Add to Cart</button></form>" .  "<br>" . "<a href='index.php'>Back</a>"; ?></div>
         
 	<?php
 		}
