@@ -3,8 +3,8 @@ session_start();
 include('../config/db.php');
 require_once("DBController.php");
 $db_handle = new DBController();
-if(isset($_GET["id"])) {
-switch($_GET["id"]) {
+if(isset($_GET["action"])) {
+switch($_GET["action"]) {
 	case "add":
 		//if(!empty($_POST["quantity"])) {
             $productByCode = $db_handle->runQuery("SELECT * FROM products WHERE id='" . $_GET["id"] . "'");
