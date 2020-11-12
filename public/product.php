@@ -18,11 +18,11 @@
 
         
 
-        $row = $result->fetch_assoc();
+        /*$row = $result->fetch_assoc();
         $product_name = $row["name"];
         $price = $row["price"];
         $description = $row["description"];
-        $type = $row["type"];
+        $type = $row["type"];*/
         //echo all data
         //echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<a href='#'>Add to Cart</a>" .  "<br>" . "<a href='index.php'>Back</a>";
 
