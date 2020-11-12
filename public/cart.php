@@ -2,14 +2,17 @@
 session_start();
 include('../config/db.php');
 require_once("DBController.php");
+
+
+$mysqli = new mysqli($servername, $username, $password, $dbname);
+$sql = "SELECT * FROM products WHERE id='$id'";
+$result = $mysqli->query($sql);
+
 $db_handle = new DBController();
 if(!empty($_GET["action"])) {
 switch($_GET["action"]) {
 	case "add":
 		//if(!empty($_POST["quantity"])) {
-
-        $sql = "SELECT * FROM products WHERE id='$id'";
-        $result = $mysqli->query($sql); 
 
         $row = $result->fetch_assoc();
         $product_name = $row["name"];
