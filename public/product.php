@@ -11,11 +11,11 @@
         }
         $id = preg_replace('#[^0-9]#i', '', $_GET['id']);
 
-        $sql = "SELECT * FROM products WHERE id='$id' LIMIT 1";
+        $sql = "SELECT * FROM products WHERE id='$id'";
         $result = $mysqli->query($sql); 
 
-        
-	$sql = $db_handle->runQuery("SELECT * FROM products");
+    
+	$sql = $mysqli->query("SELECT * FROM products");
 	if (!empty($sql)) { 
 		foreach($sql as $key=>$value){
 		}
