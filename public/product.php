@@ -14,6 +14,15 @@
         $sql = "SELECT * FROM products WHERE id='$id' LIMIT 1";
         $result = $mysqli->query($sql); 
 
+        
+	$sql = $db_handle->runQuery("SELECT * FROM products");
+	if (!empty($sql)) { 
+		foreach($sql as $key=>$value){
+		}
+	}
+	
+
+
         $row = $result->fetch_assoc();
         $product_name = $row["name"];
         $price = $row["price"];
@@ -46,12 +55,11 @@
     
     <div class="container">
         <div class="row">
+        
             <div class="col-sm-6"><img class="img-fluid" src="img/<?php echo $id ?>.jpg" alt="HAT: <?php echo $id ?>"></div>
-            <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<form method='post' action='cart.php'> <button class='btn btn-primary' type='submit'>Add to Cart</button></form>" .  "<br>" . "<a href='index.php'>Back</a>"; ?></div>
+            <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<form method='post' action='cart.php?<?php echo $product_array[$key]['code']; ?>' <button class='btn btn-primary' type='submit'>Add to Cart</button></form>" .  "<br>" . "<a href='index.php'>Back</a>"; ?></div>
         </div>
     </div>
 
 </body>
 </html>
-
-
