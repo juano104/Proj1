@@ -74,13 +74,12 @@ if(isset($_SESSION["cart_item"])){
 				<tr>
 				<td><img src="<?php /*echo $item["image"]; */?>" class="cart-item-image" /><?php echo $item["name"]; ?></td>
 				<td><?php echo $item["id"]; ?></td>
-				<td style="text-align:right;"><?php /*echo $item["quantity"]; */?></td>
-				<td  style="text-align:right;"><?php echo "$ ".$item["price"]; ?></td>
+				<td  style="text-align:right;"><?php echo "€ ".$item["price"]; ?></td>
 				<td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btnRemoveAction"><img src="icon-delete.png" alt="Remove Item" /></a></td>
 				</tr>
 				<?php
-				$total_quantity += $item["quantity"];
-				$total_price += ($item["price"]*$item["quantity"]);
+				//$total_quantity += $item["quantity"];
+				//$total_price += ($item["price"]*$item["quantity"]);
 		}
 		?>
 </tbody>
