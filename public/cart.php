@@ -44,15 +44,22 @@ switch($_GET["action"]) {
 }
 }
 ?>
-<HTML>
-<HEAD>
-<TITLE>Simple PHP Shopping Cart</TITLE>
-</HEAD>
-<BODY>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
 <div id="shopping-cart">
 <div class="txt-heading">Shopping Cart</div>
 
-<a id="btnEmpty" href="cart.php?action=empty">Empty Cart</a>
+<button class="btn btn-danger">Clear Cart</button>
+<button class="btn btn-primary">Keep Shopping</button>
 <?php
 if(isset($_SESSION["cart_item"])){
     $total_quantity = 0;
@@ -92,7 +99,5 @@ if(isset($_SESSION["cart_item"])){
 }
 ?>
 </div>
-
-
-</BODY>
-</HTML>
+</body>
+</html>
