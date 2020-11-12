@@ -29,10 +29,6 @@
 		foreach($product_array as $key=>$value){
 		}
 	}
-	
-        //echo all data
-        //echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>" . "<a href='#'>Add to Cart</a>" .  "<br>" . "<a href='index.php'>Back</a>";
-
 
     }else{
         echo "Theres a problem with the query";
