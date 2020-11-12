@@ -32,7 +32,7 @@ switch($_GET["action"]) {
 		if(!empty($_SESSION["cart_item"])) {
 			foreach($_SESSION["cart_item"] as $k => $v) {
 					if($_GET["id"] == $k)
-						unset($_SESSION["cart_item"][$k]);				
+						unset($_SESSION["cart_item"][$v]);				
 					if(empty($_SESSION["cart_item"]))
 						unset($_SESSION["cart_item"]);
 			}
