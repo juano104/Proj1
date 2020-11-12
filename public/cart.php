@@ -6,7 +6,7 @@ $db_handle = new DBController();
 if(!empty($_GET["action"])) {
 switch($_GET["action"]) {
 	case "add":
-		if(!empty($_POST["quantity"])) {
+		//if(!empty($_POST["quantity"])) {
 			$productByCode = $db_handle->runQuery("SELECT * FROM products WHERE id='" . $_GET["id"] . "'");
 			$itemArray = array($productByCode[0]["id"]=>array('name'=>$productByCode[0]["name"], 'id'=>$productByCode[0]["id"], 'price'=>$productByCode[0]["price"]));
 			
@@ -26,7 +26,7 @@ switch($_GET["action"]) {
 			} else {
 				$_SESSION["cart_item"] = $itemArray;
 			}
-		}
+		//}
 	break;
 	case "remove":
 		if(!empty($_SESSION["cart_item"])) {
