@@ -49,6 +49,9 @@ if (isset($_POST['save'])) {
                 <label>Price:</label>
                 <input type="text" name="price" value="" required />
             </div>
+            <div class="form_group">
+                <input type="submit" value="Add Product">
+            </div>
         </div>
     </form>
 </body>
