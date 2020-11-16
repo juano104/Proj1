@@ -31,19 +31,22 @@ if (isset($_POST['save'])) {
 <body>
     <h2>Enter Product</h2>
     <form method="post" action="process.php">
-        Product Name:<br>
-        <input type="text" name="name">
-        <br>
-        Description:<br>
-        <input type="text" name="description">
-        <br>
-        Type:<br>
-        <input type="text" name="type">
-        <br>
-        Price:<br>
-        <input type="email" name="price">
-        <br><br>
-        <input type="submit" name="save" value="Submit">
+        <div class="container">
+            Product Name:<br>
+            <input type="text" name="name">
+            <br>
+            Description:<br>
+            <input type="text" name="description">
+            <br>
+            Type:<br>
+            <input type="text" name="type">
+            <br>
+            Price:<br>
+            <input type="text" name="price">
+            <br><br>
+            <input type="submit" name="save" value="Submit">
+        </div>
+
     </form>
 </body>
 
