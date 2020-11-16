@@ -11,7 +11,7 @@ if (isset($_POST['save'])) {
     $description = $_POST['description'];
     $type = $_POST['type'];
     $price = $_POST['price'];
-    $sql = "INSERT INTO employee (name,description,type,price)
+    $sql = "INSERT INTO products (name,description,type,price)
 	VALUES ('$name','$description','$type','$price')";
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully !<br>";
