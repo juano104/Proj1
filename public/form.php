@@ -8,7 +8,8 @@ if (isset($_POST['save'])) {
     $sql = "INSERT INTO employee (name,description,type,price)
 	VALUES ('$name','$description','$type','$price')";
     if (mysqli_query($conn, $sql)) {
-        echo "New record created successfully !";
+        echo "New record created successfully !<br>";
+        echo "Would you like to enter another one? <a href='form.php'>YES</a>  <a href='index.php'>NO</a>";
     } else {
         echo "Error: " . $sql . " " . mysqli_error($conn);
     }
@@ -30,7 +31,7 @@ if (isset($_POST['save'])) {
 
 <body>
     <h2>Enter Product</h2>
-    <form method="post" action="process.php">
+    <form method="post" action="form.php">
         <div class="container">
             Product Name:<br>
             <input type="text" name="name">
