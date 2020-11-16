@@ -70,7 +70,7 @@ switch($_GET["action"]) {
                 <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
                 <li class="nav-item active"><a href="cart.php" class="nav-link">MyCart <span class="sr-only">(current)</span></a></li>
                 <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="form.php" class="nav-link">Form</a></li>
             </ul>
             </div>
         </div>

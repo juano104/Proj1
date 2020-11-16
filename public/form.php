@@ -1,32 +1,53 @@
 <?php
+
+if (isset($_POST['save'])) {
+    $name = $_POST['name'];
+    $description = $_POST['description'];
+    $type = $_POST['type'];
+    $price = $_POST['price'];
+    $sql = "INSERT INTO employee (name,description,type,price)
+	VALUES ('$name','$description','$type','$price')";
+    if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully !";
+    } else {
+        echo "Error: " . $sql . "
+" . mysqli_error($conn);
+    }
+    mysqli_close($conn);
+}
+
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Registration Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/card.css">
 </head>
 
 <body>
-    <link href="registration.css" type="text/css" rel="stylesheet" />
-    <h2>Sign Up</h2>
-    <form name="form1" action="modified.php" method="post" enctype="multipart/form-data">
+    <h2>Enter Product</h2>
+    <form action="form.php" method="post">
         <div class="container">
             <div class="form_group">
-                <label>First Name:</label>
-                <input type="text" name="fname" value="" required />
+                <label>Name:</label>
+                <input type="text" name="name" value="" required />
             </div>
             <div class="form_group">
-                <label>Middle Name:</label>
-                <input type="text" name="mname" value="" required />
+                <label>Description:</label>
+                <input type="text" name="decription" value="" />
             </div>
             <div class="form_group">
-                <label>Last Name:</label>
-                <input type="text" name="lname" value="" required />
+                <label>Type:</label>
+                <input type="text" name="type" value="" />
             </div>
             <div class="form_group">
-                <label>Password:</label>
-                <input type="password" name="pwd" value="" required />
+                <label>Price:</label>
+                <input type="text" name="price" value="" required />
             </div>
         </div>
     </form>
