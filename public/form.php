@@ -1,5 +1,5 @@
 <?php
-
+include('../config/db.php');
 if (isset($_POST['save'])) {
     $name = $_POST['name'];
     $description = $_POST['description'];
@@ -10,8 +10,7 @@ if (isset($_POST['save'])) {
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully !";
     } else {
-        echo "Error: " . $sql . "
-" . mysqli_error($conn);
+        echo "Error: " . $sql . " " . mysqli_error($conn);
     }
     mysqli_close($conn);
 }
@@ -31,28 +30,20 @@ if (isset($_POST['save'])) {
 
 <body>
     <h2>Enter Product</h2>
-    <form action="form.php" method="post">
-        <div class="container">
-            <div class="form_group">
-                <label>Name:</label>
-                <input type="text" name="name" value="" required />
-            </div>
-            <div class="form_group">
-                <label>Description:</label>
-                <input type="text" name="decription" value="" />
-            </div>
-            <div class="form_group">
-                <label>Type:</label>
-                <input type="text" name="type" value="" />
-            </div>
-            <div class="form_group">
-                <label>Price:</label>
-                <input type="text" name="price" value="" required />
-            </div>
-            <div class="form_group">
-                <input type="submit" value="Add Product">
-            </div>
-        </div>
+    <form method="post" action="process.php">
+        Product Name:<br>
+        <input type="text" name="name">
+        <br>
+        Description:<br>
+        <input type="text" name="description">
+        <br>
+        Type:<br>
+        <input type="text" name="type">
+        <br>
+        Price:<br>
+        <input type="email" name="price">
+        <br><br>
+        <input type="submit" name="save" value="Submit">
     </form>
 </body>
 
