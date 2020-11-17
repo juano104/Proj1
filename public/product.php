@@ -24,11 +24,11 @@ if (isset($_GET['id'])) {
     $type = $row["type"];
 
 
-    $product_array = $db_handle->runQuery("SELECT * FROM products ORDER BY id ASC");
+    /*$product_array = $db_handle->runQuery("SELECT * FROM products ORDER BY id ASC");
     if (!empty($product_array)) {
         foreach ($product_array as $key => $value) {
         }
-    }
+    }*/
 } else {
     echo "Theres a problem with the query";
 }
