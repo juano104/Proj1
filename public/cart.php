@@ -17,7 +17,7 @@ if (!empty($_GET["action"])) {
                                 if (empty($_SESSION["cart_item"][$k]["quantity"])) {
                                     $_SESSION["cart_item"][$k]["quantity"] = 0;
                                 }
-                                $_SESSION["cart_item"][$k]["quantity"] = $_POST["quantity"]++;
+                                $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
                             }
                         }
                     } else {
@@ -32,7 +32,6 @@ if (!empty($_GET["action"])) {
             if (!empty($_SESSION["cart_item"])) {
                 foreach ($_SESSION["cart_item"] as $k => $v) {
                     if ($_GET["id"] == $k)
-
                         unset($_SESSION["cart_item"][$k]);
                     if (empty($_SESSION["cart_item"]))
                         unset($_SESSION["cart_item"]);
@@ -89,7 +88,7 @@ if (!empty($_GET["action"])) {
             $total_quantity = 0;
             $total_price = 0;
         ?>
-            <table class="tbl-cart" cellpadding="10" cellspacing="1">
+            <table cellpadding="10" cellspacing="1">
                 <tbody>
                     <tr>
                         <th style="text-align:left;">Name</th>
@@ -108,7 +107,7 @@ if (!empty($_GET["action"])) {
                             <td><?php echo $item["id"]; ?></td>
                             <td style="text-align:right;"><?php echo "€ " . $item["price"]; ?></td>
                             <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
-                            <td  style="text-align:right;"><?php echo "€ ". number_format($item_price,2); ?></td>
+                            <td style="text-align:right;"><?php echo "€ " . number_format($item_price, 2); ?></td>
                             <td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btn">Remove Item</a></td>
                         </tr>
                     <?php
