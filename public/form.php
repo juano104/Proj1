@@ -10,6 +10,42 @@
 </head>
 
 <body>
+
+    <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a href="index.php" class="navbar-brand">
+                <!-- Logo Image -->
+                <img src="img/logo.jpg" width="45" alt="logo" class="d-inline-block align-middle mr-2">
+                <!-- Logo Text -->
+                <span class="text-uppercase font-weight-bold">HatShop</span>
+            </a>
+
+            <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="cart.php" class="nav-link">MyCart</a></li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class=" nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown">
+                                Languages
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">English</a>
+                                <a class="dropdown-item" href="#">Español</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="form.php" class="nav-link">Form <span
+                                class="sr-only">(current)</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <h2>Enter Product</h2>
     <form method="post" action="formprocess.php">
         <div class="container">
