@@ -24,11 +24,11 @@ if (isset($_GET['id'])) {
     $type = $row["type"];
 
 
-    $product_array = $db_handle->runQuery("SELECT * FROM products ORDER BY id ASC");
+    /*$product_array = $db_handle->runQuery("SELECT * FROM products ORDER BY id ASC");
     if (!empty($product_array)) {
         foreach ($product_array as $key => $value) {
         }
-    }
+    }*/
 } else {
     echo "Theres a problem with the query";
 }
@@ -75,7 +75,11 @@ $mysqli->close();
     <div class="container">
         <div class="row">
             <div class="col-sm-6"><img class="img-fluid" src="img/<?php echo $id ?>.jpg" alt="HAT: <?php echo $id ?>"></div>
-
+            <?php
+            $product_array = $db_handle->runQuery("SELECT * FROM products ORDER BY id ASC");
+            if (!empty($product_array)) {
+            foreach ($product_array as $key => $value) {
+                ?>
             <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>"; ?>
                 <form method="post" action="cart.php?action=add&id=<?php echo $row["id"]; ?>">
                     <button type="submit" class="btn btn-primary">Add to Cart</button>
@@ -83,6 +87,12 @@ $mysqli->close();
                 </form>
                 <a href="index.php">Back</a>
             </div>
+
+            <?php
+                }
+            }
+            ?>
+
         </div>
     </div>
 
