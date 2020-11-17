@@ -16,9 +16,8 @@ if (!empty($_GET["action"])) {
                             if ($productByCode[0]["id"] == $k) {
                                 if (empty($_SESSION["cart_item"][$k]["quantity"])) {
                                     $_SESSION["cart_item"][$k]["quantity"] = 0;
-                                }else{
-                                    $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
                                 }
+                                $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
                             }
                         }
                     } else {
@@ -88,6 +87,7 @@ if (!empty($_GET["action"])) {
         if (isset($_SESSION["cart_item"])) {
             $total_quantity = 0;
             $total_price = 0;
+            $quantity = $_POST["quantity"];
         ?>
             <table cellpadding="10" cellspacing="1">
                 <tbody>
@@ -107,7 +107,7 @@ if (!empty($_GET["action"])) {
                             <td><?php echo $item["name"]; ?></td>
                             <td><?php echo $item["id"]; ?></td>
                             <td style="text-align:right;"><?php echo "€ " . $item["price"]; ?></td>
-                            <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
+                            <td style="text-align:right;"><?php echo $quantity; ?></td>
                             <td style="text-align:right;"><?php echo "€ " . number_format($item_price, 2); ?></td>
                             <td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btn">Remove Item</a></td>
                         </tr>
