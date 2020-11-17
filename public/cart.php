@@ -104,7 +104,7 @@ if (!empty($_GET["action"])) {
                         <tr>
                             <td><?php echo $item["name"]; ?></td>
                             <td><?php echo $item["id"]; ?></td>
-                            <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>-
+                            <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
                             <td style="text-align:right;"><?php echo "€ " . $item["price"]; ?></td>
                             <td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btn">Remove Item</a></td>
                         </tr>
@@ -118,7 +118,7 @@ if (!empty($_GET["action"])) {
         <?php
         } else {
         ?>
-            <div class="no-records">Your Cart is Empty</div>
+            <div class="container">Your Cart is Empty</div>
         <?php
         }
         ?>
