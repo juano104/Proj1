@@ -118,7 +118,7 @@ if (!empty($_GET["action"])) {
                         <td colspan="2" align="right">Total:</td>
                         <td align="right"><?php echo $total_quantity; ?></td>
                         <td align="right" colspan="2"><strong><?php echo "€ " . number_format($total_price, 2); ?></strong></td>
-                        <td></td>
+                        <td align="right"><button class="btn btn-success">Buy</button></td>
                     </tr>
                 </tbody>
             </table>
