@@ -100,7 +100,7 @@ if (!empty($_GET["action"])) {
                     <?php
                     foreach ($_SESSION["cart_item"] as $item) {
                         $item_price = $item["quantity"] * $item["price"];
-                        $quantity = $item["quantity"] + $_POST["quantity"];
+                        $quantity = $_POST["quantity"] + $_SESSION["quantity"];
                     ?>
                         <tr>
                             <td><?php echo $item["name"]; ?></td>
