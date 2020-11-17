@@ -16,8 +16,9 @@ if (!empty($_GET["action"])) {
                             if ($productByCode[0]["id"] == $k) {
                                 if (empty($_SESSION["cart_item"][$k]["quantity"])) {
                                     $_SESSION["cart_item"][$k]["quantity"] = 0;
+                                }else{
+                                    $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
                                 }
-                                $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
                             }
                         }
                     } else {
