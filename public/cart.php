@@ -6,26 +6,26 @@ $db_handle = new DBController();
 if (!empty($_GET["action"])) {
     switch ($_GET["action"]) {
         case "add":
-            if(!empty($_POST["quantity"])) {
-            $productByCode = $db_handle->runQuery("SELECT * FROM products WHERE id='" . $_GET["id"] . "'");
-            $itemArray = array($productByCode[0]["id"] => array('name' => $productByCode[0]["name"], 'id' => $productByCode[0]["id"],'quantity' => $_POST["quantity"], 'price' => $productByCode[0]["price"]));
+            if (!empty($_POST["quantity"])) {
+                $productByCode = $db_handle->runQuery("SELECT * FROM products WHERE id='" . $_GET["id"] . "'");
+                $itemArray = array($productByCode[0]["id"] => array('name' => $productByCode[0]["name"], 'id' => $productByCode[0]["id"], 'quantity' => $_POST["quantity"], 'price' => $productByCode[0]["price"]));
 
-            if (!empty($_SESSION["cart_item"])) {
-                if (in_array($productByCode[0]["id"], array_keys($_SESSION["cart_item"]))) {
-                    foreach ($_SESSION["cart_item"] as $k => $v) {
-                        if ($productByCode[0]["id"] == $k) {
-                            if (empty($_SESSION["cart_item"][$k]["quantity"])) {
-                                $_SESSION["cart_item"][$k]["quantity"] = 0;
+                if (!empty($_SESSION["cart_item"])) {
+                    if (in_array($productByCode[0]["id"], array_keys($_SESSION["cart_item"]))) {
+                        foreach ($_SESSION["cart_item"] as $k => $v) {
+                            if ($productByCode[0]["id"] == $k) {
+                                if (empty($_SESSION["cart_item"][$k]["quantity"])) {
+                                    $_SESSION["cart_item"][$k]["quantity"] = 0;
+                                }
+                                $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
                             }
-                            $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
                         }
+                    } else {
+                        $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
                     }
                 } else {
-                    $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
+                    $_SESSION["cart_item"] = $itemArray;
                 }
-            } else {
-                $_SESSION["cart_item"] = $itemArray;
-            }
             }
             break;
         case "remove":
@@ -113,6 +113,12 @@ if (!empty($_GET["action"])) {
                         $total_price += ($item["price"] * $item["quantity"]);
                     }
                     ?>
+                    <tr>
+                        <td colspan="2" align="right">Total:</td>
+                        <td align="right"><?php echo $total_quantity; ?></td>
+                        <td align="right" colspan="2"><strong><?php echo "€ " . number_format($total_price, 2); ?></strong></td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
         <?php
