@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
     $type = $row["type"];
 
 
-    $product_array = $db_handle->runQuery("SELECT * FROM products ORDER BY id ASC");
+    $product_array = $db_handle->runQuery("SELECT * FROM products WHERE id='" . $_GET["id"] . "'");
     if (!empty($product_array)) {
         foreach ($product_array as $key => $value) {
         }
