@@ -93,7 +93,7 @@ if (!empty($_GET["action"])) {
                     <tr>
                         <th style="text-align:left;">Name</th>
                         <th style="text-align:left;">ID</th>
-                        <th style="text-align:right;" width="5%">Quantity</th>
+                        <!--<th style="text-align:right;" width="5%">Quantity</th>-->
                         <th style="text-align:right;" width="10%">Price</th>
                         <th style="text-align:center;" width="5%">Remove</th>
                     </tr>
