@@ -7,7 +7,7 @@ if (!empty($_GET["action"])) {
     switch ($_GET["action"]) {
         case "add":
             if (!empty($_POST["quantity"])) {
-                $productByCode = $db_handle->runQuery("SELECT * FROM products WHERE id='" . $_GET["id"] . "'");
+                $productByCode = $db_handle->runQuery("SELECT * FROM products WHERE id=" . $_GET["id"] );
                 $itemArray = array($productByCode[0]["id"] => array('name' => $productByCode[0]["name"], 'id' => $productByCode[0]["id"], 'quantity' => $_POST["quantity"], 'price' => $productByCode[0]["price"]));
                 if (!empty($_SESSION["cart_item"])) {
                     if (in_array($productByCode[0]["id"], array_keys($_SESSION["cart_item"]))) {
@@ -100,13 +100,12 @@ if (!empty($_GET["action"])) {
                     <?php
                     foreach ($_SESSION["cart_item"] as $item) {
                         $item_price = $item["quantity"] * $item["price"];
-                        $quantity = $_POST["quantity"] + $_SESSION["quantity"];
                     ?>
                         <tr>
                             <td><?php echo $item["name"]; ?></td>
                             <td><?php echo $item["id"]; ?></td>
                             <td style="text-align:right;"><?php echo "€ " . $item["price"]; ?></td>
-                            <td style="text-align:right;"><?php echo $quantity; ?></td>
+                            <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
                             <td style="text-align:right;"><?php echo "€ " . number_format($item_price, 2); ?></td>
                             <td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btn">Remove Item</a></td>
                         </tr>
