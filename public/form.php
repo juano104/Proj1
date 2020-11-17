@@ -26,7 +26,7 @@
 
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="cart.php" class="nav-link">MyCart</a></li>
                     <li class="nav-item">
                         <div class="dropdown">
@@ -39,8 +39,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item"><a href="form.php" class="nav-link">Form <span
-                                class="sr-only">(current)</span></a></li>
+                    <li class="nav-item active"><a href="form.php" class="nav-link">Form</a></li>
                 </ul>
             </div>
         </div>
