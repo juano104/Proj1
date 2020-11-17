@@ -8,7 +8,7 @@ if (!empty($_GET["action"])) {
         case "add":
             if(!empty($_POST["quantity"])) {
             $productByCode = $db_handle->runQuery("SELECT * FROM products WHERE id='" . $_GET["id"] . "'");
-            $itemArray = array($productByCode[0]["id"] => array('name' => $productByCode[0]["name"], 'id' => $productByCode[0]["id"], 'price' => $productByCode[0]["price"]));
+            $itemArray = array($productByCode[0]["id"] => array('name' => $productByCode[0]["name"], 'id' => $productByCode[0]["id"],'quantity' => $_POST["quantity"], 'price' => $productByCode[0]["price"]));
 
             if (!empty($_SESSION["cart_item"])) {
                 if (in_array($productByCode[0]["id"], array_keys($_SESSION["cart_item"]))) {
@@ -104,7 +104,7 @@ if (!empty($_GET["action"])) {
                         <tr>
                             <td><?php echo $item["name"]; ?></td>
                             <td><?php echo $item["id"]; ?></td>
-                            <td style="text-align:right;"><?php //echo $item["quantity"]; ?></td>-
+                            <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>-
                             <td style="text-align:right;"><?php echo "€ " . $item["price"]; ?></td>
                             <td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btn">Remove Item</a></td>
                         </tr>
