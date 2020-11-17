@@ -77,8 +77,9 @@ $mysqli->close();
             <div class="col-sm-6"><img class="img-fluid" src="img/<?php echo $id ?>.jpg" alt="HAT: <?php echo $id ?>"></div>
 
             <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>"; ?>
-                <form method="post" name="quantity" action="cart.php?action=add&id=<?php echo $idprod; ?>">
+                <form method="post" action="cart.php?action=add&id=<?php echo $idprod; ?>">
                     <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    <input type="text" name="quantity" value="1" size="2" />
                 </form>
                 <a href="index.php">Back</a>
             </div>

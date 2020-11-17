@@ -6,7 +6,7 @@ $db_handle = new DBController();
 if (!empty($_GET["action"])) {
     switch ($_GET["action"]) {
         case "add":
-            //if(!empty($_POST["quantity"])) {
+            if(!empty($_POST["quantity"])) {
             $productByCode = $db_handle->runQuery("SELECT * FROM products WHERE id='" . $_GET["id"] . "'");
             $itemArray = array($productByCode[0]["id"] => array('name' => $productByCode[0]["name"], 'id' => $productByCode[0]["id"], 'price' => $productByCode[0]["price"]));
 
@@ -14,10 +14,10 @@ if (!empty($_GET["action"])) {
                 if (in_array($productByCode[0]["id"], array_keys($_SESSION["cart_item"]))) {
                     foreach ($_SESSION["cart_item"] as $k => $v) {
                         if ($productByCode[0]["id"] == $k) {
-                            /*if (empty($_SESSION["cart_item"][$k]["quantity"])) {
+                            if (empty($_SESSION["cart_item"][$k]["quantity"])) {
                                 $_SESSION["cart_item"][$k]["quantity"] = 0;
                             }
-                            $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];*/
+                            $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
                         }
                     }
                 } else {
@@ -26,7 +26,7 @@ if (!empty($_GET["action"])) {
             } else {
                 $_SESSION["cart_item"] = $itemArray;
             }
-            //}
+            }
             break;
         case "remove":
             if (!empty($_SESSION["cart_item"])) {
@@ -93,24 +93,24 @@ if (!empty($_GET["action"])) {
                     <tr>
                         <th style="text-align:left;">Name</th>
                         <th style="text-align:left;">ID</th>
-                        <!--<th style="text-align:right;" width="5%">Quantity</th>-->
+                        <th style="text-align:right;" width="5%">Quantity</th>
                         <th style="text-align:right;" width="10%">Price</th>
                         <th style="text-align:center;" width="5%">Remove</th>
                     </tr>
                     <?php
                     foreach ($_SESSION["cart_item"] as $item) {
-                        //$item_price = $item["quantity"] * $item["price"];
+                        $item_price = $item["quantity"] * $item["price"];
                     ?>
                         <tr>
                             <td><?php echo $item["name"]; ?></td>
                             <td><?php echo $item["id"]; ?></td>
-                            <!--<td style="text-align:right;"><?php //echo $item["quantity"]; ?></td>-->
+                            <td style="text-align:right;"><?php //echo $item["quantity"]; ?></td>-
                             <td style="text-align:right;"><?php echo "€ " . $item["price"]; ?></td>
                             <td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btn">Remove Item</a></td>
                         </tr>
                     <?php
-                        //$total_quantity += $item["quantity"];
-                        //$total_price += ($item["price"] * $item["quantity"]);
+                        $total_quantity += $item["quantity"];
+                        $total_price += ($item["price"] * $item["quantity"]);
                     }
                     ?>
                 </tbody>
