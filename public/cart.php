@@ -93,6 +93,7 @@ if (!empty($_GET["action"])) {
                     <tr>
                         <th style="text-align:left;">Name</th>
                         <th style="text-align:left;">ID</th>
+                        <th style="text-align:right;" width="10%">Unit Price</th>
                         <th style="text-align:right;" width="5%">Quantity</th>
                         <th style="text-align:right;" width="10%">Price</th>
                         <th style="text-align:center;" width="5%">Remove</th>
@@ -104,8 +105,9 @@ if (!empty($_GET["action"])) {
                         <tr>
                             <td><?php echo $item["name"]; ?></td>
                             <td><?php echo $item["id"]; ?></td>
-                            <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
                             <td style="text-align:right;"><?php echo "€ " . $item["price"]; ?></td>
+                            <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
+                            <td  style="text-align:right;"><?php echo "€ ". number_format($item_price,2); ?></td>
                             <td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btn">Remove Item</a></td>
                         </tr>
                     <?php
