@@ -87,7 +87,7 @@ if (!empty($_GET["action"])) {
         if (isset($_SESSION["cart_item"])) {
             $total_quantity = 0;
             $total_price = 0;
-            $quantity = $_POST["quantity"];
+            $quantity = $_SESSION["cart_item"][$k]["quantity"] + $_POST["quantity"];
         ?>
             <table cellpadding="10" cellspacing="1">
                 <tbody>
