@@ -64,7 +64,8 @@ if (isset($_SESSION['lang'])) {
                     <li class="nav-item"><a href="cart.php" class="nav-link">MyCart</a></li>
                     <li class="nav-item">
                         <form method="get" action="" id="form_lang">
-                            Select Language : <select name='lang' onchange='changeLang();'>
+                            <select name='lang' onchange='changeLang();'>
+                            <option value="chooselanguage">Language</option>
                                 <option value='en' <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
                                                         echo "selected";
                                                     } ?>>English</option>
