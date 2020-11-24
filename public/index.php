@@ -12,6 +12,22 @@ if ($conn->connect_error) {
 $sql = "Select id, name, price from products";
 $result = $conn->query($sql);
 $conn->close();
+
+// Set Language variable
+if (isset($_GET['lang']) && !empty($_GET['lang'])) {
+    $_SESSION['lang'] = $_GET['lang'];
+
+    if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
+        echo "<script type='text/javascript'> location.reload(); </script>";
+    }
+}
+
+// Include Language file
+if (isset($_SESSION['lang'])) {
+    include "lang_" . $_SESSION['lang'] . ".php";
+} else {
+    include "lang_en.php";
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +39,11 @@ $conn->close();
     <title>Hat Shop</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/card.css">
+    <script>
+        function changeLang() {
+            document.getElementById('form_lang').submit();
+        }
+    </script>
 </head>
 
 <body>
@@ -42,15 +63,25 @@ $conn->close();
                     <li class="nav-item active"><a href="index.php" class="nav-link">Home <span class="sr-only">(current)</span></a></li>
                     <li class="nav-item"><a href="cart.php" class="nav-link">MyCart</a></li>
                     <li class="nav-item">
-                        <div class="dropdown">
-                            <a class=" nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown">
-                                Languages
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">English</a>
-                                <a class="dropdown-item" href="#">Español</a>
-                            </div>
-                        </div>
+                        <form method="get" action="" id="form_lang">
+                            Select Language : <select name='lang' onchange='changeLang();'>
+                                <option value='en' <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
+                                                        echo "selected";
+                                                    } ?>>English</option>
+                                <option value='es' <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'es') {
+                                                        echo "selected";
+                                                    } ?>>Spanish</option>
+                            </select>
+                            <!--<div class="dropdown">
+                                <a class=" nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown">
+                                    Languages
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">English</a>
+                                    <a class="dropdown-item" href="#">Español</a>
+                                </div>
+                            </div>-->
+                        </form>
                     </li>
                     <li class="nav-item"><a href="form.php" class="nav-link">Form</a></li>
                 </ul>
