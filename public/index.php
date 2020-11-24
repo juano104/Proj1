@@ -110,7 +110,7 @@ if (isset($_SESSION['lang'])) {
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $product_name; ?></h5>
                                     <p class="card-text"><?php echo $price; ?>€</p>
-                                    <?php echo "<a href='product.php?id=$id'>View</a>" ?>
+                                    <a href='product.php?id=$id'><?=_VIEW?></a>
                                 </div>
                             </div>
                         </div>
