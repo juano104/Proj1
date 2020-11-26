@@ -26,30 +26,30 @@
 
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="cart.php" class="nav-link">MyCart</a></li>
-                    <li class="nav-item active"><a href="form.php" class="nav-link">Form</a></li>
+                    <li class="nav-item"><a href="index.php" class="nav-link"><?= _HOME ?></a></li>
+                    <li class="nav-item"><a href="cart.php" class="nav-link"><?= _MYCART ?></a></li>
+                    <li class="nav-item active"><a href="form.php" class="nav-link"><?= _FORM ?></a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <h2>Enter Product</h2>
+    <h2><?= _ENTERPRODUCT ?></h2>
     <form method="post" action="formprocess.php">
         <div class="container">
-            Product Name:<br>
+        <?= _PRODUCTNAME ?>:<br>
             <input type="text" name="name">
             <br>
-            Description:<br>
+            <?= _DESCRIPTION ?>:<br>
             <input type="text" name="description">
             <br>
-            Type:<br>
+            <?= _TYPE ?>:<br>
             <input type="text" name="type">
             <br>
-            Price:<br>
+            <?= _PRICE ?>:<br>
             <input type="text" name="price">
             <br><br>
-            <input type="submit" name="save" value="Submit">
+            <input type="submit" name="save" value="<?= _SUBMIT ?>">
         </div>
 
     </form>
