@@ -42,6 +42,21 @@ if (!empty($_GET["action"])) {
             break;
     }
 }
+// Set Language variable
+if (isset($_GET['lang']) && !empty($_GET['lang'])) {
+    $_SESSION['lang'] = $_GET['lang'];
+
+    if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
+        echo "<script type='text/javascript'> location.reload(); </script>";
+    }
+}
+
+// Include Language file
+if (isset($_SESSION['lang'])) {
+    include "lang_" . $_SESSION['lang'] . ".php";
+} else {
+    include "lang_en.php";
+}
 ?>
 
 
@@ -68,20 +83,19 @@ if (!empty($_GET["action"])) {
 
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-                    <li class="nav-item active"><a href="cart.php" class="nav-link">MyCart <span class="sr-only">(current)</span></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="form.php" class="nav-link">Form</a></li>
+                    <li class="nav-item"><a href="index.php" class="nav-link"><?= _HOME ?></a></li>
+                    <li class="nav-item active"><a href="cart.php" class="nav-link"><?= _MYCART ?> </a></li>
+                    <li class="nav-item"><a href="form.php" class="nav-link"><?= _FORM ?></a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container">
-        <h2 class="display-4 text-center">Shopping Cart</h2>
+        <h2 class="display-4 text-center"><?= _SHOPPINGCART ?></h2>
 
-        <a href="cart.php?action=empty" class="btn btn-danger">Clear Cart</a>
-        <a href="index.php" class="btn btn-primary">Keep Shopping</a>
+        <a href="cart.php?action=empty" class="btn btn-danger"><?= _CLEARCART ?></a>
+        <a href="index.php" class="btn btn-primary"><?= _KEEPSHOPPING ?></a>
         <?php
         if (isset($_SESSION["cart_item"])) {
             $total_quantity = 0;
@@ -90,12 +104,12 @@ if (!empty($_GET["action"])) {
             <table cellpadding="10" cellspacing="1">
                 <tbody>
                     <tr>
-                        <th style="text-align:left;">Name</th>
+                        <th style="text-align:left;"><?= _NAME ?></th>
                         <th style="text-align:left;">ID</th>
-                        <th style="text-align:right;" width="10%">Unit Price</th>
-                        <th style="text-align:right;" width="5%">Quantity</th>
-                        <th style="text-align:right;" width="10%">Price</th>
-                        <th style="text-align:center;" width="5%">Remove</th>
+                        <th style="text-align:right;" width="10%"><?= _UNITPRICE ?></th>
+                        <th style="text-align:right;" width="5%"><?= _QUANTITY ?></th>
+                        <th style="text-align:right;" width="10%"><?= _PRICE ?></th>
+                        <th style="text-align:center;" width="5%"><?= _REMOVE ?></th>
                     </tr>
                     <?php
                     foreach ($_SESSION["cart_item"] as $item) {
@@ -107,7 +121,7 @@ if (!empty($_GET["action"])) {
                             <td style="text-align:right;"><?php echo "€ " . $item["price"]; ?></td>
                             <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
                             <td style="text-align:right;"><?php echo "€ " . number_format($item_price, 2); ?></td>
-                            <td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btn">Remove Item</a></td>
+                            <td style="text-align:center;"><a href="cart.php?action=remove&id=<?php echo $item["id"]; ?>" class="btn"><?= _REMOVEITEM ?></a></td>
                         </tr>
                     <?php
                         $total_quantity += $item["quantity"];
@@ -118,14 +132,14 @@ if (!empty($_GET["action"])) {
                         <td colspan="2" align="right">Total:</td>
                         <td align="right"><?php echo $total_quantity; ?></td>
                         <td align="right" colspan="2"><strong><?php echo "€ " . number_format($total_price, 2); ?></strong></td>
-                        <td align="right"><button class="btn btn-success">Buy</button></td>
+                        <td align="right"><button class="btn btn-success"><?= _BUY ?></button></td>
                     </tr>
                 </tbody>
             </table>
         <?php
         } else {
         ?>
-            <div class="container">Your Cart is Empty</div>
+            <div class="container"><?= _CARTEMPTY ?></div>
         <?php
         }
         ?>
