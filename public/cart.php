@@ -4,10 +4,26 @@ include('../config/db.php');
 require_once("DBController.php");
 $db_handle = new DBController();
 if (!empty($_GET["action"])) {
+    // Set Language variable
+    if (isset($_GET['lang']) && !empty($_GET['lang'])) {
+        $_SESSION['lang'] = $_GET['lang'];
+
+        if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
+            echo "<script type='text/javascript'> location.reload(); </script>";
+        }
+    }
+
+    // Include Language file
+    if (isset($_SESSION['lang'])) {
+        include "lang_" . $_SESSION['lang'] . ".php";
+    } else {
+        include "lang_en.php";
+    }
+    $lang = $_SESSION['lang'];
     switch ($_GET["action"]) {
         case "add":
             if (!empty($_POST["quantity"])) {
-                $productByCode = $db_handle->runQuery("SELECT * FROM products WHERE id=" . $_GET["id"]);
+                $productByCode = $db_handle->runQuery("select * from products".$lang." WHERE id=" . $_GET["id"]);
                 $itemArray = array($productByCode[0]["id"] => array('name' => $productByCode[0]["name"], 'id' => $productByCode[0]["id"], 'quantity' => $_POST["quantity"], 'price' => $productByCode[0]["price"]));
                 if (!empty($_SESSION["cart_item"])) {
                     if (in_array($productByCode[0]["id"], array_keys($_SESSION["cart_item"]))) {
@@ -42,6 +58,7 @@ if (!empty($_GET["action"])) {
             break;
     }
 }
+/*
 // Set Language variable
 if (isset($_GET['lang']) && !empty($_GET['lang'])) {
     $_SESSION['lang'] = $_GET['lang'];
@@ -56,7 +73,7 @@ if (isset($_SESSION['lang'])) {
     include "lang_" . $_SESSION['lang'] . ".php";
 } else {
     include "lang_en.php";
-}
+}*/
 ?>
 
 
