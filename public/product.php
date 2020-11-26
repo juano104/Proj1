@@ -29,7 +29,7 @@ if (isset($_GET['id'])) {
 
 $mysqli->close();
 // Set Language variable
-/*if (isset($_GET['lang'])) {
+if (isset($_GET['lang'])) {
     $_SESSION['lang'] = $_GET['lang'];
 
     if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
@@ -42,7 +42,7 @@ if (isset($_SESSION['lang'])) {
     include "lang_" . $_SESSION['lang'] . ".php";
 } else {
     include "lang_en.php";
-}*/
+}
 
 ?>
 
