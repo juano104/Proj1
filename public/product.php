@@ -78,27 +78,6 @@ if (isset($_SESSION['lang'])) {
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="index.php" class="nav-link"><?= _HOME ?></a></li>
                     <li class="nav-item"><a href="cart.php" class="nav-link"><?= _MYCART ?></a></li>
-                    <li class="nav-item">
-                        <form method="get" action="" id="form_lang">
-                            <select name='lang' onchange='changeLang();'>
-                                <option value='en' <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
-                                                        echo "selected";
-                                                    } ?>>English</option>
-                                <option value='es' <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'es') {
-                                                        echo "selected";
-                                                    } ?>>Spanish</option>
-                            </select>
-                            <!--<div class="dropdown">
-                                <a class=" nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown">
-                                    Languages
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">English</a>
-                                    <a class="dropdown-item" href="#">Español</a>
-                                </div>
-                            </div>-->
-                        </form>
-                    </li>
                     <li class="nav-item"><a href="form.php" class="nav-link"><?= _FORM ?></a></li>
                 </ul>
             </div>
