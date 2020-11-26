@@ -60,8 +60,8 @@ if (isset($_SESSION['lang'])) {
 
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a href="index.php" class="nav-link"><?=_HOME?><span class="sr-only">(current)</span></a></li>
-                    <li class="nav-item"><a href="cart.php" class="nav-link"><?=_MYCART?></a></li>
+                    <li class="nav-item active"><a href="index.php" class="nav-link"><?= _HOME ?><span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a href="cart.php" class="nav-link"><?= _MYCART ?></a></li>
                     <li class="nav-item">
                         <form method="get" action="" id="form_lang">
                             <select name='lang' onchange='changeLang();'>
@@ -83,7 +83,7 @@ if (isset($_SESSION['lang'])) {
                             </div>-->
                         </form>
                     </li>
-                    <li class="nav-item"><a href="form.php" class="nav-link"><?=_FORM?></a></li>
+                    <li class="nav-item"><a href="form.php" class="nav-link"><?= _FORM ?></a></li>
                 </ul>
             </div>
         </div>
@@ -110,7 +110,7 @@ if (isset($_SESSION['lang'])) {
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo $product_name; ?></h5>
                                     <p class="card-text"><?php echo $price; ?>€</p>
-                                    <a href='product.php?id=<?php echo $id?>'><?=_VIEW?></a>
+                                    <a href='product.php?id=<?php echo $id ?>'><?= _VIEW ?></a>
                                 </div>
                             </div>
                         </div>

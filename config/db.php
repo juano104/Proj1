@@ -3,4 +3,3 @@
     $username = "priori";
     $password = "password";
     $dbname = "HatShop";
-?>
