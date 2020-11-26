@@ -33,10 +33,24 @@ if (isset($_GET['id'])) {
     echo "Theres a problem with the query";
 }
 
-
-
-
 $mysqli->close();
+
+// Set Language variable
+if (isset($_GET['lang']) && !empty($_GET['lang'])) {
+    $_SESSION['lang'] = $_GET['lang'];
+
+    if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
+        echo "<script type='text/javascript'> location.reload(); </script>";
+    }
+}
+
+// Include Language file
+if (isset($_SESSION['lang'])) {
+    include "lang_" . $_SESSION['lang'] . ".php";
+} else {
+    include "lang_en.php";
+}
+?>
 ?>
 
 
@@ -63,10 +77,9 @@ $mysqli->close();
 
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="cart.php" class="nav-link">MyCart</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-                    <li class="nav-item"><a href="form.php" class="nav-link">Form</a></li>
+                    <li class="nav-item"><a href="index.php" class="nav-link"><?=_HOME?></a></li>
+                    <li class="nav-item"><a href="cart.php" class="nav-link"><?=_MYCART?></a></li>
+                    <li class="nav-item"><a href="form.php" class="nav-link"><?=_FORM?></a></li>
                 </ul>
             </div>
         </div>
@@ -78,10 +91,10 @@ $mysqli->close();
 
             <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>"; ?>
                 <form method="post" action="cart.php?action=add&id=<?php echo $id; ?>">
-                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    <button type="submit" class="btn btn-primary"><?=_ADDTOCART?></button>
                     <input type="text" name="quantity" value="1" size="2" />
                 </form>
-                <a href="index.php">Back</a>
+                <a href="index.php"><?=_BACK?></a>
             </div>
         </div>
     </div>
