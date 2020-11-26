@@ -78,15 +78,15 @@ if (isset($_SESSION['lang'])) {
                     <li class="nav-item"><a href="index.php" class="nav-link"><?= _HOME ?></a></li>
                     <li class="nav-item"><a href="cart.php" class="nav-link"><?= _MYCART ?></a></li>
                     <li class="nav-item">
-                        <form method="get" action="" id="form_lang">
+                        <!--<form method="get" action="" id="form_lang">
                             <select name='lang' onchange='changeLang();'>
-                                <option value='en' <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
+                                <option value='en' <?php /*if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'en') {
                                                         echo "selected";
                                                     } ?>>English</option>
                                 <option value='es' <?php if (isset($_SESSION['lang']) && $_SESSION['lang'] == 'es') {
                                                         echo "selected";
-                                                    } ?>>Spanish</option>
-                            </select>
+                                                    } */?>>Spanish</option>
+                            </select>-->
                             <!--<div class="dropdown">
                                 <a class=" nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown">
                                     Languages
