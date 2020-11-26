@@ -1,5 +1,20 @@
 <?php
 if (isset($_GET['id'])) {
+    // Set Language variable
+    if (isset($_GET['lang']) && !empty($_GET['lang'])) {
+        $_SESSION['lang'] = $_GET['lang'];
+
+        if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
+            echo "<script type='text/javascript'> location.reload(); </script>";
+        }
+    }
+
+    // Include Language file
+    if (isset($_SESSION['lang'])) {
+        include "lang_" . $_SESSION['lang'] . ".php";
+    } else {
+        include "lang_en.php";
+    }
     // Connect to the MySQL database  
     include('../config/db.php');
     require_once("DBController.php");
@@ -35,21 +50,7 @@ if (isset($_GET['id'])) {
 
 $mysqli->close();
 
-// Set Language variable
-if (isset($_GET['lang']) && !empty($_GET['lang'])) {
-    $_SESSION['lang'] = $_GET['lang'];
 
-    if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
-        echo "<script type='text/javascript'> location.reload(); </script>";
-    }
-}
-
-// Include Language file
-if (isset($_SESSION['lang'])) {
-    include "lang_" . $_SESSION['lang'] . ".php";
-} else {
-    include "lang_en.php";
-}
 ?>
 
 
@@ -81,8 +82,8 @@ if (isset($_SESSION['lang'])) {
 
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="index.php" class="nav-link"><?=_HOME?></a></li>
-                    <li class="nav-item"><a href="cart.php" class="nav-link"><?=_MYCART?></a></li>
+                    <li class="nav-item"><a href="index.php" class="nav-link"><?= _HOME ?></a></li>
+                    <li class="nav-item"><a href="cart.php" class="nav-link"><?= _MYCART ?></a></li>
                     <li class="nav-item">
                         <form method="get" action="" id="form_lang">
                             <select name='lang' onchange='changeLang();'>
@@ -104,7 +105,7 @@ if (isset($_SESSION['lang'])) {
                             </div>-->
                         </form>
                     </li>
-                    <li class="nav-item"><a href="form.php" class="nav-link"><?=_FORM?></a></li>
+                    <li class="nav-item"><a href="form.php" class="nav-link"><?= _FORM ?></a></li>
                 </ul>
             </div>
         </div>
@@ -116,10 +117,10 @@ if (isset($_SESSION['lang'])) {
 
             <div class="col-sm-6"><?php echo $product_name . "<br>" . $price . "€<br>" . $description . "<br>" . $type . "<br>"; ?>
                 <form method="post" action="cart.php?action=add&id=<?php echo $id; ?>">
-                    <button type="submit" class="btn btn-primary"><?=_ADDTOCART?></button>
+                    <button type="submit" class="btn btn-primary"><?= _ADDTOCART ?></button>
                     <input type="text" name="quantity" value="1" size="2" />
                 </form>
-                <a href="index.php"><?=_BACK?></a>
+                <a href="index.php"><?= _BACK ?></a>
             </div>
         </div>
     </div>
