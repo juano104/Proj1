@@ -14,9 +14,6 @@ if ($conn->connect_error) {
 if (isset($_GET['lang']) && !empty($_GET['lang'])) {
     $_SESSION['lang'] = $_GET['lang'];
 
-    /*$sql = "Select id, name, price from products".$_GET['lang'];
-    $result = $conn->query($sql);
-    $conn->close();*/
     if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
         echo "<script type='text/javascript'> location.reload(); </script>";
     }
