@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (isset($_GET['id'])) {
     
     // Connect to the MySQL database  
@@ -13,7 +12,7 @@ if (isset($_GET['id'])) {
     if ($mysqli->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    $id = preg_replace('#[^0-9]#i', '', $_GET['id']);
+    $id = $_GET['id'];
 
     $sql = "SELECT * FROM products WHERE id='$id' LIMIT 1";
     $result = $mysqli->query($sql);
@@ -24,20 +23,13 @@ if (isset($_GET['id'])) {
     $price = $row["price"];
     $description = $row["description"];
     $type = $row["type"];
-
-
-    /*$product_array = $db_handle->runQuery("SELECT * FROM products ORDER BY id ASC");
-    if (!empty($product_array)) {
-        foreach ($product_array as $key => $value) {
-        }
-    }*/
 } else {
     echo "Theres a problem with the query";
 }
 
 $mysqli->close();
 // Set Language variable
-if (isset($_GET['lang']) && !empty($_GET['lang'])) {
+/*if (isset($_GET['lang'])) {
     $_SESSION['lang'] = $_GET['lang'];
 
     if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
@@ -50,7 +42,7 @@ if (isset($_SESSION['lang'])) {
     include "lang_" . $_SESSION['lang'] . ".php";
 } else {
     include "lang_en.php";
-}
+}*/
 
 ?>
 
