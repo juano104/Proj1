@@ -1,7 +1,22 @@
 <?php
 session_start();
 if (isset($_GET['id'])) {
-    
+    // Set Language variable
+    if (isset($_GET['lang']) && !empty($_GET['lang'])) {
+        $_SESSION['lang'] = $_GET['lang'];
+
+        if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
+            echo "<script type='text/javascript'> location.reload(); </script>";
+        }
+    }
+
+    // Include Language file
+    if (isset($_SESSION['lang'])) {
+        include "lang_" . $_SESSION['lang'] . ".php";
+    } else {
+        include "lang_en.php";
+    }
+
     // Connect to the MySQL database  
     include('../config/db.php');
     require_once("DBController.php");
@@ -14,8 +29,9 @@ if (isset($_GET['id'])) {
         die("Connection failed: " . $conn->connect_error);
     }
     $id = $_GET['id'];
+    $lang = $_SESSION['lang'];
 
-    $sql = "SELECT * FROM products WHERE id='$id' LIMIT 1";
+    $sql = "select * from products".$lang." WHERE id='$id' LIMIT 1";
     $result = $mysqli->query($sql);
 
     $row = $result->fetch_assoc();
@@ -29,21 +45,7 @@ if (isset($_GET['id'])) {
 }
 
 $mysqli->close();
-// Set Language variable
-if (isset($_GET['lang']) && !empty($_GET['lang'])) {
-    $_SESSION['lang'] = $_GET['lang'];
 
-    if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
-        echo "<script type='text/javascript'> location.reload(); </script>";
-    }
-}
-
-// Include Language file
-if (isset($_SESSION['lang'])) {
-    include "lang_" . $_SESSION['lang'] . ".php";
-} else {
-    include "lang_en.php";
-}
 
 ?>
 

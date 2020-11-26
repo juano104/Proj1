@@ -8,15 +8,15 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-//make query
-$sql = "Select id, name, price from products";
-$result = $conn->query($sql);
-$conn->close();
+
 
 // Set Language variable
 if (isset($_GET['lang']) && !empty($_GET['lang'])) {
     $_SESSION['lang'] = $_GET['lang'];
 
+    /*$sql = "Select id, name, price from products".$_GET['lang'];
+    $result = $conn->query($sql);
+    $conn->close();*/
     if (isset($_SESSION['lang']) && $_SESSION['lang'] != $_GET['lang']) {
         echo "<script type='text/javascript'> location.reload(); </script>";
     }
@@ -27,6 +27,16 @@ if (isset($_SESSION['lang'])) {
     include "lang_" . $_SESSION['lang'] . ".php";
 } else {
     include "lang_en.php";
+}
+//make query
+if ($_GET['lang'] == "es") {
+    $sql = "Select id, name, price from productses";
+    $result = $conn->query($sql);
+    $conn->close();
+} else if ($_GET['lang'] == "en") {
+    $sql = "Select id, name, price from productsen";
+    $result = $conn->query($sql);
+    $conn->close();
 }
 ?>
 
