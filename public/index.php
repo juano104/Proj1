@@ -25,11 +25,11 @@ if (isset($_SESSION['lang'])) {
     include "lang_en.php";
 }
 //make query
-if ($_SESSION['lang'] == "es") {
+if ($_GET['lang'] == "es") {
     $sql = "Select id, name, price from productses";
     $result = $conn->query($sql);
     $conn->close();
-} else if ($_SESSION['lang'] == "en") {
+} else if ($_GET['lang'] == "en") {
     $sql = "Select id, name, price from productsen";
     $result = $conn->query($sql);
     $conn->close();
