@@ -43,7 +43,7 @@ if (!empty($_GET["action"])) {
                     $_SESSION["cart_item"] = $itemArray;
                 }
             }
-            header("Location: www.cap-o.com/Proj1/public/cart.php");
+            header("Location: cart.php");
             break;
         case "remove":
             if (!empty($_SESSION["cart_item"])) {
